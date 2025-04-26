@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest MBTA Stop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class ="container">
+        <img src="{{ url_for('static', filename='mbta_logo.png') }}" alt="MBTA Logo" class="logo">
+    <h1>Nearest MBTA Stop to "{{ place }}"</h1>
+    <p><strong>Stop Name:</strong> {{ stop }}</p>
+    <p><a href="https://www.google.com/maps/search/{{ stop | urlencode }}" target="_blank">View {{ stop }} on Google Maps</a></p>
+
+    <p><strong>Wheelchair Accessible:</strong>
+        {% if accessible %}
+            ✅ Yes
+        {% else %}
+            ❌ No
+        {% endif %}
+    </p>
+    <a href="/">Search another location</a>
+    </div>
+    <footer style="margin-top: 50px; font-size: 14px; color: #666;">
+        <p>Built by Delfina de Prat Gay </p>
+    </footer>
+</body>
+</html>

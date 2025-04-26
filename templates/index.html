@@ -4,11 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hi</title>
+    <title>MBTA Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script>
+      window.onload = function() {
+        document.querySelector("input[name='place']").focus();
+      }
+    </script>
+    
   </head>
 
   <body>
-    <h1>Hi</h1>
-    <p>This is an amazing app to help you find the nearest MBTA station</p>
+    <div class="container">
+      <img src="{{ url_for('static', filename='mbta_logo.png') }}" alt="MBTA Logo" class="logo">
+    <h1>Find the nearest MBTA stop</h1>
+    <form action="/nearest_mbta" method="POST">
+      <label for="place">Enter a place or address:</label>
+      <input type="text" name="place" required>
+      <button type="submit">Find</button>
+    </form>
+    </div>
+    <footer style="margin-top: 50px; font-size: 14px; color: #666;">
+      <p>Built by Delfina de Prat Gay </p>
+  </footer>
   </body>
 </html>
